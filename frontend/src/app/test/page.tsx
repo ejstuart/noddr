@@ -1,10 +1,5 @@
-import styles from './page.module.css';
+import ClientTest from './ClientTest';
 
-export default function Test() {
-    return (
-        <div>
-            <h1 className={styles.heading}>This is a new page</h1>
-            <p className={styles.paragraph}>WUBBA WUBBA WUBBA</p>
-        </div>
-    )
+export default function TestPage() {
+  return <ClientTest />;
 }
