@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import { CacheProvider } from '@emotion/react';
-import { ThemeProvider } from '@emotion/react';
-import createCache from '@emotion/cache';
-import { useServerInsertedHTML } from 'next/navigation';
-import { useState } from 'react';
-import theme from './theme';
+import { CacheProvider } from "@emotion/react";
+import { ThemeProvider } from "@emotion/react";
+import createCache from "@emotion/cache";
+import { useServerInsertedHTML } from "next/navigation";
+import { useState } from "react";
+import theme from "./theme";
 
 export default function StyleRegistry({
   children,
@@ -13,7 +13,7 @@ export default function StyleRegistry({
   children: React.ReactNode;
 }) {
   const [cache] = useState(() => {
-    const cache = createCache({ key: 'emotion-cache' });
+    const cache = createCache({ key: "emotion-cache" });
     cache.compat = true;
     return cache;
   });
@@ -21,9 +21,9 @@ export default function StyleRegistry({
   useServerInsertedHTML(() => {
     return (
       <style
-        data-emotion={`${cache.key} ${Object.keys(cache.inserted).join(' ')}`}
+        data-emotion={`${cache.key} ${Object.keys(cache.inserted).join(" ")}`}
         dangerouslySetInnerHTML={{
-          __html: Object.values(cache.inserted).join(' '),
+          __html: Object.values(cache.inserted).join(" "),
         }}
       />
     );
@@ -31,9 +31,7 @@ export default function StyleRegistry({
 
   return (
     <CacheProvider value={cache}>
-      <ThemeProvider theme={theme}>
-        {children}
-      </ThemeProvider>
+      <ThemeProvider theme={theme}>{children}</ThemeProvider>
     </CacheProvider>
   );
-} 
+}
