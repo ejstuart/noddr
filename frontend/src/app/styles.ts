@@ -1,7 +1,6 @@
-import Image from "next/image";
 import styled from "@emotion/styled";
 
-const Container = styled("div")`
+export const Container = styled("div")`
   display: grid;
   grid-template-rows: 20px 1fr 20px;
   align-items: center;
@@ -17,7 +16,7 @@ const Container = styled("div")`
   }
 `;
 
-const Main = styled("main")`
+export const Main = styled("main")`
   display: flex;
   flex-direction: column;
   gap: ${props => props.theme.spacing[32]};
@@ -29,7 +28,7 @@ const Main = styled("main")`
   }
 `;
 
-const List = styled("ol")`
+export const List = styled("ol")`
   list-style-position: inside;
   list-style-type: decimal;
   font-size: 0.875rem;
@@ -42,12 +41,12 @@ const List = styled("ol")`
   }
 `;
 
-const ListItem = styled("li")`
+export const ListItem = styled("li")`
   margin-bottom: ${props => props.theme.spacing[2]};
   letter-spacing: -0.01em;
 `;
 
-const Code = styled("code")`
+export const Code = styled("code")`
   background-color: rgba(0, 0, 0, 0.05);
   padding-left: ${props => props.theme.spacing[1]};
   padding-right: ${props => props.theme.spacing[1]};
@@ -62,7 +61,7 @@ const Code = styled("code")`
   }
 `;
 
-const ButtonsContainer = styled("div")`
+export const ButtonsContainer = styled("div")`
   display: flex;
   gap: ${props => props.theme.spacing[4]};
   align-items: center;
@@ -73,7 +72,7 @@ const ButtonsContainer = styled("div")`
   }
 `;
 
-const PrimaryButton = styled("a")`
+export const PrimaryButton = styled("a")`
   border-radius: ${props => props.theme.borderRadius.full};
   border: 1px solid transparent;
   transition: colors 0.3s;
@@ -108,7 +107,7 @@ const PrimaryButton = styled("a")`
   }
 `;
 
-const SecondaryButton = styled("a")`
+export const SecondaryButton = styled("a")`
   border-radius: ${props => props.theme.borderRadius.full};
   border: 1px solid rgba(0, 0, 0, 0.08);
   transition: colors 0.3s;
@@ -148,7 +147,7 @@ const SecondaryButton = styled("a")`
   }
 `;
 
-const Footer = styled("footer")`
+export const Footer = styled("footer")`
   grid-row-start: 3;
   display: flex;
   gap: ${props => props.theme.spacing[24]};
@@ -157,7 +156,7 @@ const Footer = styled("footer")`
   justify-content: center;
 `;
 
-const FooterLink = styled("a")`
+export const FooterLink = styled("a")`
   display: flex;
   align-items: center;
   gap: ${props => props.theme.spacing[2]};
@@ -166,99 +165,4 @@ const FooterLink = styled("a")`
     text-decoration: underline;
     text-underline-offset: 4px;
   }
-`;
-
-export default function Home() {
-  return (
-    <Container>
-      <Main>
-        <Image
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <List>
-          <ListItem>
-            Let&apos;s add a new page {" "}
-            <Code>
-              Goto /test
-            </Code>
-            .
-          </ListItem>
-          <ListItem>
-            Save and see your changes instantly.
-          </ListItem>
-        </List>
-        
-        <ButtonsContainer>
-          <PrimaryButton
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Some test text
-          </PrimaryButton>
-          <SecondaryButton
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </SecondaryButton>
-        </ButtonsContainer>
-      </Main>
-      <Footer>
-        <FooterLink
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </FooterLink>
-        <FooterLink
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </FooterLink>
-        <FooterLink
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </FooterLink>
-      </Footer>
-    </Container>
-  );
-} 
+`; 

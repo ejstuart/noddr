@@ -6,27 +6,8 @@ import createCache from '@emotion/cache';
 import { useServerInsertedHTML } from 'next/navigation';
 import { useState } from 'react';
 import theme from './theme';
-import { Global, css } from '@emotion/react';
-import { Geist, Geist_Mono } from "next/font/google";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-const globalStyles = css`
-  :root {
-    --font-geist-sans: ${geistSans.style.fontFamily};
-    --font-geist-mono: ${geistMono.style.fontFamily};
-  }
-`;
-
-export default function ClientRegistry({
+export default function StyleRegistry({
   children,
 }: {
   children: React.ReactNode;
@@ -49,13 +30,10 @@ export default function ClientRegistry({
   });
 
   return (
-    <>
-      <Global styles={globalStyles} />
-      <CacheProvider value={cache}>
-        <ThemeProvider theme={theme}>
-          {children}
-        </ThemeProvider>
-      </CacheProvider>
-    </>
+    <CacheProvider value={cache}>
+      <ThemeProvider theme={theme}>
+        {children}
+      </ThemeProvider>
+    </CacheProvider>
   );
 } 
